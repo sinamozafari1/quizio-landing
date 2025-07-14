@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import {
   Carousel,
@@ -39,13 +39,12 @@ const slides = [
 ];
 
 export default function PhoneSlider() {
-  const [current, setCurrent] = React.useState(0);
+  const [current, setCurrent] = useState(0);
 
   return (
     <div className="relative">
       <div className="w-[320px] h-[640px] bg-gray-800 rounded-[2.5rem] p-2 shadow-2xl flex flex-col items-center">
         <div className="w-full h-full bg-white rounded-[2rem] overflow-hidden relative flex flex-col">
-          {/* Status Bar */}
           <div className="absolute top-0 left-0 right-0 h-8 bg-black rounded-t-[2rem] flex items-center justify-between px-6 text-white text-xs z-10">
             <span>9:41</span>
             <div className="flex items-center space-x-1">
@@ -53,7 +52,6 @@ export default function PhoneSlider() {
               <div className="w-1 h-1 bg-white rounded-full"></div>
             </div>
           </div>
-          {/* Carousel */}
           <div className="flex-1 flex flex-col justify-end pt-8 pb-8 px-6 relative">
             <Image
               src="/quiz-image.jpg"
@@ -82,7 +80,6 @@ export default function PhoneSlider() {
                 ))}
               </CarouselContent>
             </Carousel>
-            {/* Dots */}
             <div className="flex space-x-2 mb-6 justify-center z-10 relative">
               {slides.map((_, idx) => (
                 <span
@@ -91,7 +88,6 @@ export default function PhoneSlider() {
                 />
               ))}
             </div>
-            {/* Buttons */}
             <div className="flex w-full justify-between items-center px-2 z-10 relative mt-2">
               <button
                 className="text-purple-600 font-semibold text-sm hover:underline focus:outline-none"
@@ -140,11 +136,9 @@ export default function PhoneSlider() {
               )}
             </div>
           </div>
-          {/* Home Indicator */}
           <div className="absolute bottom-2 left-1/2 transform -translate-x-1/2 w-24 h-1 bg-black rounded-full z-10"></div>
         </div>
       </div>
-      {/* Phone Shadow */}
       <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 w-48 h-4 bg-black/20 rounded-full blur-lg"></div>
     </div>
   );
